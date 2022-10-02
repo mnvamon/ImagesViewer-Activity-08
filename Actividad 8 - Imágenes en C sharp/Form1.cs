@@ -16,5 +16,42 @@ namespace Actividad_8___Imágenes_en_C_sharp
         {
             InitializeComponent();
         }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Close(); //Cerrar el programa
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            linkLabel1.LinkVisited = true;
+            System.Diagnostics.Process.Start("Calc");
+        }
+
+        private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            linkLabel2.LinkVisited = true;
+            System.Diagnostics.Process.Start("IExplore", "http://www.ucol.mx");
+        }
+
+        private void linkLabel3_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            linkLabel3.LinkVisited = true;
+            System.Diagnostics.Process.Start("C:\\");
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if(openFileDialog1.ShowDialog()==DialogResult.OK)
+            {
+                visorDeImagenes.Image = Image.FromFile(openFileDialog1.FileName);
+                this.Text = String.Concat("Form1 (" + openFileDialog1.FileName + ")");
+            }
+        }
     }
 }
